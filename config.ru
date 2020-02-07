@@ -6,3 +6,5 @@ end
 
 
 run ApplicationController
+use ShowsController
+use UsersController
