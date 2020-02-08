@@ -1,18 +1,31 @@
 class UsersController < ApplicationController
 
   # GET: /users
-  get "/users" do
-    erb :"/users/index"
-  end
+  #get "/users" do
+   # erb :"/users/index"
+  #end
 
   # GET: /users/new
   get "/users/new" do
-    erb :"/users/new"
+    if !logged_in?
+      erb :'/users/new'
+   else
+      redirect to '/users/show'
+   end
+    #erb :"/users/new"
   end
 
   # POST: /users
-  post "/users" do
-    redirect "/users"
+  post "/users/new" do
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      redirect to '/users/new'
+    else
+      @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
+      @user.save
+      session[:user_id] = @user.id
+      redirect to '/users/show'
+    end
+    #redirect "/users/show"
   end
 
   # GET: /users/5
