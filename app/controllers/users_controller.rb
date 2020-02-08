@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 
   # GET: /users/new
   get "/users/new" do
-    
     erb :"/users/new"
   end
 
