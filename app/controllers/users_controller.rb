@@ -1,50 +1,51 @@
 class UsersController < ApplicationController
-
-  # GET: /users
-  #get "/users" do
-   # erb :"/users/index"
-  #end
-
-  # GET: /users/new
-  get "/users/new" do
-    if !logged_in?
-      erb :'/users/new'
-   else
-      redirect to '/users/show'
-   end
-    #erb :"/users/new"
+  
+  
+  get '/user/:id/index' do
+    @user = User.find_by_id(params[:user_id])
+    erb :'/users/index'
   end
 
-  # POST: /users
-  post "/users/new" do
+  get '/signup' do
+    if !logged_in?
+      erb :'/users/create_user'
+   else
+      redirect to '/users/:id/index'
+   end
+  end
+
+  post '/signup' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      redirect to '/users/new'
+      redirect to '/signup'
     else
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @user.save
       session[:user_id] = @user.id
-      redirect to '/users/show'
+      redirect to '/users/:id/index'
     end
-    #redirect "/users/show"
   end
-
-  # GET: /users/5
-  get "/users/:id" do
-    erb :"/users/show"
+  
+  get '/login' do 
+    if !logged_in?
+      erb :'/users/login'
+    else
+      redirect to '/users/:id/index'
+    end
+  end 
+  
+  post '/login' do 
+    login(params[:username], params[:password])
+    current_user
+    redirect to '/users/:id/index'
+  end 
+  
+  get '/logout' do 
+    if logged_in?
+      logout!
+    redirect to '/signup'
+    else
+      redirect to '/'
+    end
   end
-
-  # GET: /users/5/edit
-  get "/users/:id/edit" do
-    erb :"/users/edit"
-  end
-
-  # PATCH: /users/5
-  patch "/users/:id" do
-    redirect "/users/:id"
-  end
-
-  # DELETE: /users/5/delete
-  delete "/users/:id/delete" do
-    redirect "/users"
-  end
-end
+  
+end 
