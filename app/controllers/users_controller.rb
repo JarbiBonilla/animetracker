@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   
-  get '/user/:id/index' do
+  get '/users/:id/index' do
     @user = User.find_by_id(params[:user_id])
     erb :'/users/index'
   end
@@ -39,10 +39,10 @@ class UsersController < ApplicationController
     redirect to '/users/:id/index'
   end 
   
-  get '/logout' do 
+  post '/logout' do 
     if logged_in?
       logout!
-    redirect to '/signup'
+    redirect to '/login'
     else
       redirect to '/'
     end

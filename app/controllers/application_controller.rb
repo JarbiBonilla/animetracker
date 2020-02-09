@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "whateveruwantfornow"
   end
 
-  get "/" do
+  get '/' do
     erb :welcome
   end
   
@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
      if user && user.authenticate(password)
       session[:user_id] = user.id
      else
-      redirect "/login"
+      redirect '/login'
      end
    end
     
