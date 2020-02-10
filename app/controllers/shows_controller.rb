@@ -8,7 +8,7 @@ class ShowsController < ApplicationController
    end
   end
   
-  post '/shows/new' do 
+  post '/shows' do 
     if logged_in?
       if params[:title] == "" || params[:rating] == "" || params[:streaming_service] == "" || params[:review] == ""
         erb :'shows/create_show'
