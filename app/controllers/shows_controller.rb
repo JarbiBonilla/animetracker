@@ -1,10 +1,10 @@
 class ShowsController < ApplicationController
   
-  get '/shows/new' do 
+  get '/shows/:id/new' do 
     erb :'shows/create_show'
   end
   
-  post '/shows/new' do 
+  post '/shows/:id/new' do 
     @show = 
       
 
