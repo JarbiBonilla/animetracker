@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
   
-  get '/users/:id/index' do
+  get '/users/:id' do
     @user = User.find_by_id(params[:id])
-    erb :'/users/index'
+    @animes = @user.shows
+    erb :'/users/show'
   end
 
   get '/signup' do
     if !logged_in?
       erb :'/users/create_user'
    else
-      redirect to "/users/#{current_user.id}/index"
+      redirect to "/users/#{current_user.id}"
    end
   end
 
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @user.save
       session[:user_id] = @user.id
-      redirect to "/users/#{current_user.id}/index"
+      redirect to "/users/#{current_user.id}"
     end
   end
   
@@ -28,14 +29,14 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/login'
     else
-      redirect to "/users/#{current_user.id}/index"
+      redirect to "/users/#{current_user.id}"
     end
   end 
   
   post '/login' do 
     login(params[:username], params[:password])
     current_user
-    redirect to "/users/#{current_user.id}/index"
+    redirect to "/users/#{current_user.id}"
   end 
   
   post '/logout' do 
