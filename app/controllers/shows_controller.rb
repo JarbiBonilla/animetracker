@@ -1,11 +1,28 @@
 class ShowsController < ApplicationController
   
   get '/shows/new' do 
-    erb :'shows/create_show'
+    if logged_in?
+      erb :'/shows/create_show'
+    else
+      redirect to '/login'
+   end
   end
   
   post '/shows/new' do 
-    
+    if logged_in?
+      if params[:title] == "" || params[:rating] == "" || params[:streaming_service] == "" || params[:review] == ""
+        erb :'shows/create_show'
+      else
+        @show = current_user.shows.build(title: params[:title], rating: params[:rating], streaming_service: params[:streaming_service], review: params[:review])
+        if @show.save
+          redirect to "/tweets/#{@show.id}"
+        else
+          redirect to "/shows/new"
+        end
+      end
+    else
+      redirect to '/users/login'
+    end
   end 
       
 
