@@ -5,6 +5,7 @@ class ShowsController < ApplicationController
   end
   
   post '/shows/:id/new' do 
+    
   end 
       
 
