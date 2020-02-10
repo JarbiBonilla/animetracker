@@ -21,9 +21,17 @@ class ShowsController < ApplicationController
         end
       end
     else
-      redirect to '/users/login'
+      redirect to '/login'
     end
   end 
+  
+  get '/shows/:id'
+    if logged_in?
+      @show = Show.find_by_id(params[:id])
+      erb :'shows/show_detail'
+    else
+      redirect to '/login'
+    end
       
 
   # GET: /shows/5/edit
