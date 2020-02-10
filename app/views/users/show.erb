@@ -2,6 +2,10 @@
 
 <html>
   <h1>Welcome, <%= @user.username%> </h1>
+  <h2>Here are your current favorite animes'!</h2>
+  <% @user.shows.each do |show| %>
+    <a href="/shows/<%=show.id %>"><%=show.title%></a>
+  <% end %>
   
   
   
