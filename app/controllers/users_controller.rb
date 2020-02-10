@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   get '/users/:id/index' do
-    @user = User.find_by_id(params[:user_id])
+    @user = User.find_by_id(params[:id])
     erb :'/users/index'
   end
 
