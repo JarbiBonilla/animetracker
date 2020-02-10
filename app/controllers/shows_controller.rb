@@ -15,7 +15,7 @@ class ShowsController < ApplicationController
       else
         @show = current_user.shows.build(title: params[:title], rating: params[:rating], streaming_service: params[:streaming_service], review: params[:review])
         if @show.save
-          redirect to "/tweets/#{@show.id}"
+          redirect to "/shows/#{@show.id}"
         else
           redirect to "/shows/new"
         end
@@ -25,13 +25,14 @@ class ShowsController < ApplicationController
     end
   end 
   
-  get '/shows/:id'
+  get '/shows/:id' do
     if logged_in?
       @show = Show.find_by_id(params[:id])
       erb :'shows/show_detail'
     else
       redirect to '/login'
     end
+  end 
       
 
   # GET: /shows/5/edit
