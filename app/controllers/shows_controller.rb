@@ -5,7 +5,7 @@ class ShowsController < ApplicationController
   end
   
   post '/shows/:id/new' do 
-    @show = 
+  end 
       
 
   # GET: /shows/5/edit

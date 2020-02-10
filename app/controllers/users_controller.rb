@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/create_user'
    else
-      redirect to '/users/:id/index'
+      redirect to "/users/#{current_user.id}/index"
    end
   end
 
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @user.save
       session[:user_id] = @user.id
-      redirect to '/users/:id/index'
+      redirect to "/users/#{current_user.id}/index"
     end
   end
   
@@ -28,14 +28,14 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/login'
     else
-      redirect to '/users/:id/index'
+      redirect to "/users/#{current_user.id}/index"
     end
   end 
   
   post '/login' do 
     login(params[:username], params[:password])
     current_user
-    redirect to '/users/:id/index'
+    redirect to "/users/#{current_user.id}/index"
   end 
   
   post '/logout' do 
