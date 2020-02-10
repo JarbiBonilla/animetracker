@@ -1,24 +1,12 @@
 class ShowsController < ApplicationController
-
-  # GET: /shows
-  get "/shows" do
-    erb :"/shows/index"
+  
+  get '/shows/new' do 
+    erb :'shows/create_show'
   end
-
-  # GET: /shows/new
-  get "/shows/new" do
-    erb :"/shows/new"
-  end
-
-  # POST: /shows
-  post "/shows" do
-    redirect "/shows"
-  end
-
-  # GET: /shows/5
-  get "/shows/:id" do
-    erb :"/shows/show"
-  end
+  
+  post '/shows/new' do 
+    @show = 
+      
 
   # GET: /shows/5/edit
   get "/shows/:id/edit" do
