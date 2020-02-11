@@ -1,5 +1,14 @@
 class ShowsController < ApplicationController
   
+  get '/shows' do 
+    if logged_in?
+      @show = Show.all
+      erb :'/shows/index'
+    else 
+      redirect to '/login'
+    end 
+  end 
+  
   get '/shows/new' do 
     if logged_in?
       erb :'/shows/create_show'
