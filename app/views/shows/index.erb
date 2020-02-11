@@ -1,1 +1,7 @@
-<h1>This is the Model's index page.</h1>
+<h1>Browse all the Animes!</h1>
+
+<% @show.each do |shows| %>
+  <%= shows.title %>
+  <% end %>
+
+
