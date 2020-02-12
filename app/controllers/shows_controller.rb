@@ -43,18 +43,19 @@ class ShowsController < ApplicationController
     end
   end 
       
-
-  # GET: /shows/5/edit
   get "/shows/:id/edit" do
-    erb :"/shows/edit"
+    @show = Show.find_by_id(params[:id])
+    if logged_in? && current_user == @show.user
+      erb :'/shows/edit_show'
+    else
+      redirect to '/login'
+    end 
   end
 
-  # PATCH: /shows/5
   patch "/shows/:id" do
     redirect "/shows/:id"
   end
 
-  # DELETE: /shows/5/delete
   delete "/shows/:id/delete" do
     redirect "/shows"
   end
