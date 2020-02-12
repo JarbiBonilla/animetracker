@@ -8,5 +8,10 @@
 
 
 <br><a href='/shows/<%= @show.id %>/edit' class="button">Edit Show Here</a>
-<!-- add an edit (link) and delete button (form) right here -->
+
+<form method="POST" action="/shows/<%=@show.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Show">
+</form>
+<!-- delete button (form) right here -->
 

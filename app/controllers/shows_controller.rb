@@ -74,6 +74,14 @@ class ShowsController < ApplicationController
     end
 
   delete "/shows/:id/delete" do
-    redirect "/shows"
+    @show = Show.find_by_id(params[:id])
+    if logged_in?
+      if @show && @show.user == current_user
+         @show.delete
+      end
+        redirect to '/shows'
+      else
+        redirect to '/login'
+      end
+    end
   end
-end
