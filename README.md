@@ -13,6 +13,9 @@
   - IP address should look something like: ```142.93.11.41:50228```
 
 ## Built Using:
-  * [Corneal] https://github.com/thebrianemory/corneal
-  * [ActiveRecord] https://rubygems.org/gems/activerecord/versions/5.0.0.1
-  * [Sinatra] https://rubygems.org/gems/sinatra/versions/1.4.7
+  * [Corneal] (https://github.com/thebrianemory/corneal)
+  * [ActiveRecord] (https://rubygems.org/gems/activerecord/versions/5.0.0.1)
+  * [Sinatra] (https://rubygems.org/gems/sinatra/versions/1.4.7)
+
+## Authors
+  * Jarbi Bonilla - [JarbiBonilla] (https://github.com/JarbiBonilla)
