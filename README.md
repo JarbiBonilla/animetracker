@@ -3,4 +3,6 @@
   
 
 ## Getting Started
-  - You want to make sure you clone the repository by typing ```git clone git@github.com:JarbiBonilla/animetracker.git```
+  - You want to make sure you clone the repository by typing ```git clone git@github.com:JarbiBonilla/animetracker.git``` into your terminal.
+  - After you have cloned the repo, make sure you are in the right directory, so type ```cd animetracker``` and you will be in the correct place.
+  - You do not have to install anymore gems, everything you need is already in the file! So all you have to do from there is type ```bundle install``` into the terminal, wait for everything to install, and you will be good to go.
