@@ -19,3 +19,14 @@
 
 ## Authors
   * Jarbi Bonilla - [JarbiBonilla] (https://github.com/JarbiBonilla)
+
+## License 
+  - This project is licensed under the MIT License - see the LICENSE.md file for details
+
+## Acknowledgements
+  - Madeline Stark for being an amazing Lead Cohort.
+  - My fellow cohorts who helped me along the way whenever I was stuck.
+  - All the anime I've watched that inspired the theme of this project.
+
+
+
