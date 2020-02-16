@@ -11,3 +11,8 @@
   - Into the terminal, type ```shotgun``` and your local server will begin running. 
   - Simply copy and paste the IP address into your browser and you can begin using AnimeWeeb.
   - IP address should look something like: ```142.93.11.41:50228```
+
+## Built Using:
+  * [Corneal] https://github.com/thebrianemory/corneal
+  * [ActiveRecord] https://rubygems.org/gems/activerecord/versions/5.0.0.1
+  * [Sinatra] https://rubygems.org/gems/sinatra/versions/1.4.7
