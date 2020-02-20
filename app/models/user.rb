@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
   has_many :shows 
   has_secure_password
-  validates_presence_of :username, :password 
+  validates :email, uniqueness: true 
 end
